@@ -1,0 +1,39 @@
+/*div {*/
+/*    background-color: #47b128;*/
+/*}*/
+
+/*p {*/
+/*    color: red;*/
+/*}*/
+
+/*div>p {*/
+/*    !*color: aqua;*!*/
+/*}*/
+
+/*div>div {*/
+/*    background-color: gold;*/
+/*}*/
+
+.card {
+    background-color: gold;
+}
+
+.card:hover {
+    box-shadow: 0 0 7px black;
+}
+
+p:hover {
+    color: red;
+}
+
+.shadow {
+    box-shadow: 0 0 7px black;
+}
+
+.card > .shadow {
+
+}
+
+#active {
+    /*background-color: green;*/
+}
