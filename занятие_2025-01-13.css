@@ -1,0 +1,62 @@
+body {
+    margin: 0;
+}
+
+.head {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    background-image: url('banner.jpg');
+    color: white;
+}
+
+.head-top {
+    display: flex;
+    justify-content: space-between;
+    border-bottom: 2px solid black;
+    height: 80px;
+    z-index: 1;
+}
+
+.head-top-links {
+    display: flex;
+    flex-direction: row;
+}
+
+.head-top-links .link {
+    display: flex;
+    align-items: center;
+    padding-right: 20px;
+}
+
+.head-top-links .link a {
+    color: white;
+    text-decoration: none;
+}
+
+.head-top-logo {
+    display: flex;
+    align-items: center;
+}
+
+.head-bottom {
+    flex: 1 1 auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    z-index: 1;
+}
+
+.head-bottom-button {
+    margin-top: 100px;
+}
+
+.head-bottom-button button {
+    background-color: #e84644;
+    color: white;
+    padding: 15px 30px;
+    border: none;
+    border-radius: 5px;
+}
