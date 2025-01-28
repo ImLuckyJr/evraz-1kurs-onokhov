@@ -30,3 +30,14 @@ function clearNumbers() {
     input.value = '';
     input2.value = '';
 }
+
+
+// alert('Предупреждение о чем-либо')
+// let res = confirm('Вы согласны?')
+// console.log(res);
+// let res = prompt('Введите что-нибудь')
+// console.log(res);
+
+
+let body = document.getElementById('body');
+body.style.backgroundColor = 'red';
