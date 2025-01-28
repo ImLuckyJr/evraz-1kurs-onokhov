@@ -2,6 +2,37 @@ body {
     margin: 0;
 }
 
+/*.head {*/
+/*    height: 100vh;*/
+/*    display: flex;*/
+/*    flex-direction: column;*/
+/*}*/
+
+/*.head-top {*/
+/*    display: flex;*/
+/*    flex-direction: row;*/
+/*    justify-content: space-between;*/
+/*    height: 80px;*/
+/*    align-items: center;*/
+/*}*/
+
+/*.head-top-links {*/
+/*    display: flex;*/
+/*    flex-direction: row;*/
+/*}*/
+
+/*.head-top-links .link {*/
+/*    margin-right: 20px;*/
+/*}*/
+
+/*.head-bottom {*/
+/*    flex: 1 1 auto;*/
+/*    display: flex;*/
+/*    flex-direction: column;*/
+/*    justify-content: center;*/
+/*    text-align: center;*/
+/*}*/
+
 .head {
     height: 100vh;
     display: flex;
