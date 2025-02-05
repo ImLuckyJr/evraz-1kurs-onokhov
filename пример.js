@@ -1,8 +1,8 @@
-let d1 = document.getElementById('div1');
-
-console.log(d1.innerText);
-d1.innerText = 'Привет мир'
-console.log(d1.innerText);
+// let d1 = document.getElementById('div1');
+//
+// console.log(d1.innerText);
+// d1.innerText = 'Привет мир'
+// console.log(d1.innerText);
 
 
 // alert('Предупреждение о чем-либо')
@@ -21,12 +21,18 @@ console.log(d1.innerText);
 
 
 
+//
+// function addNumber() {
+//     let number = document.getElementById('number');
+//     let value = +number.innerText;
+//     value += 1;
+//     number.innerText = value;
+//
+//     number.innerText = ''
+// }
 
-function addNumber() {
-    let number = document.getElementById('number');
-    let value = +number.innerText;
-    value += 1;
-    number.innerText = value;
-    
-    number.innerText = ''
+
+
+for (let i = 0; i < 5; i++) {
+    console.log(i, 'Привет мир');
 }
