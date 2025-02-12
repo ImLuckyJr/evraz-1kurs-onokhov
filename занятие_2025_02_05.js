@@ -51,3 +51,21 @@
 //     console.log('Привет мир');
 //     console.log('----');
 // }
+
+
+
+
+
+
+for (let i = 0; i < 5; i++) {
+    console.log(i);
+}
+
+
+// let a = 0;
+// console.log(a);
+// a = a + 1;
+// console.log(a);
+// a = a + 1;
+// console.log(a);
+// a++
