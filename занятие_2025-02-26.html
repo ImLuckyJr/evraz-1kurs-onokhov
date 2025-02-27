@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        body {
+            display: flex;
+            flex-direction: row;
+        }
+        body > div {
+            width: 50%;
+        }
+        
+        .forma, .tovary {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        
+        .forma .item {
+            width: 400px;
+            display: flex;
+            flex-direction: column;
+            margin-bottom: 15px;
+        }
+        
+        #discountDom {
+            display: none !important;
+        }
+        
+        .tovar {
+            background-color: #f0f0f0;
+            width: 500px;
+            padding: 25px;
+            box-sizing: border-box;
+            border-radius: 25px;
+            border: 1px solid #b0b0b0;
+            position: relative;
+        }
+        
+        .tovar-name {
+            font-size: 24px;
+            font-weight: bold;
+        }
+        
+        .tovar-category {
+            font-style: italic;
+        }
+        
+        .tovar-description {
+            margin-top: 10px;
+            margin-bottom: 20px;
+        }
+        
+        .tovar-price-count {
+            display: flex;
+        }
+        
+        .tovar-price {
+            margin-right: 40px;
+        }
+        
+        .tovar-close {
+            position: absolute;
+            top: 10px;
+            right: 20px;
+        }
+    </style>
+</head>
+<body>
+<div class="forma">
+    <h3>Форма добавления товара</h3>
+    
+    <div class="item">
+        <div>Название</div>
+        <input type="text" placeholder="Прим.: Гаечные ключи" id="name">
+    </div>
+    
+    <div class="item">
+        <div>Категория</div>
+        <select>
+            <option selected disabled>Не выбрано</option>
+            <option value="close">Одежда</option>
+            <option value="shoes">Обувь</option>
+            <option value="tools">Инструменты</option>
+        </select>
+    </div>
+    
+    <div class="item">
+        <div>Стоимость</div>
+        <input type="number" value="0" id="price">
+    </div>
+    
+    <div class="item">
+        <div>Количество</div>
+        <input type="number" value="0" id="count">
+    </div>
+    
+    <div class="item">
+        <div>Есть скидка?</div>
+        
+        <div>
+            <input type="radio" id="yes" name="discount" value="true" onclick="discount(true)">
+            <label for="yes">Да</label>
+            
+            <input type="radio" id="no" name="discount" value="false" checked onclick="discount(false)">
+            <label for="no">Нет</label>
+        </div>
+    </div>
+    
+    <div class="item" id="discountDom">
+        <div>Скидка, %</div>
+        <input type="number" value="0" id="discount">
+    </div>
+    
+    <div class="item">
+        <div>Особенности</div>
+        
+        <div>
+            <input type="checkbox" id="bu" name="specials" value="bu">
+            <label for="bu">Б/У</label>
+        </div>
+        <div>
+            <input type="checkbox" id="fragile" name="specials" value="fragile">
+            <label for="fragile">Хрупкий</label>
+        </div>
+    </div>
+    
+    <div class="item">
+        <div>Описание</div>
+        <textarea
+            name=""
+            id="description"
+            cols="10"
+            rows="5"
+        ></textarea>
+    </div>
+    
+    <div class="item">
+        <button>Добавить товар</button>
+    </div>
+</div>
+<div class="tovary">
+    <h3>Товары</h3>
+    
+    <div id="list">
+        <div class="tovar">
+            <div class="tovar-name">Название</div>
+            <div class="tovar-category">Категории</div>
+            <div class="tovar-description">Описание</div>
+            <div class="tovar-price-count">
+                <div class="tovar-price">Цена: 1000</div>
+                <div class="count">Количество: 1000</div>
+            </div>
+            <div class="tovar-close">X</div>
+        </div>
+    </div>
+</div>
+<script src="занятие_2025-02-26.js"></script>
+</body>
+</html>

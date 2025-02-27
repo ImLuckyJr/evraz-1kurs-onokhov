@@ -3,9 +3,9 @@
 // }
 
 
-// // 1 вариант
-// let i = 0;
-//
+// 1 вариант
+let i = 0;
+
 // while (true) {
 //     console.log(i);
 //     i = i + 1;
@@ -14,14 +14,14 @@
 //         break;
 //     }
 // }
-//
-// // 2 вариант
-// i = 0;
-//
-// while (i <= 20) {
-//     console.log(i);
-//     i = i + 1;
-// }
+
+// 2 вариант
+i = 0;
+
+while (i <= 20) {
+    console.log(i);
+    i = i + 1;
+}
 
 
 // while (true) {
@@ -58,8 +58,10 @@
 
 
 for (let i = 0; i < 5; i++) {
-    console.log(i);
+
 }
+
+
 
 
 // let a = 0;
