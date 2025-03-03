@@ -37,6 +37,7 @@
             border-radius: 25px;
             border: 1px solid #b0b0b0;
             position: relative;
+            margin-bottom: 10px;
         }
         
         .tovar-name {
@@ -44,7 +45,8 @@
             font-weight: bold;
         }
         
-        .tovar-category {
+        .tovar-category,
+        .tovar-specials {
             font-style: italic;
         }
         
@@ -59,12 +61,26 @@
         
         .tovar-price {
             margin-right: 40px;
+            display: flex;
+        }
+        
+        .tovar-price-old {
+            text-decoration: line-through;
         }
         
         .tovar-close {
             position: absolute;
             top: 10px;
             right: 20px;
+            box-sizing: border-box;
+            border-radius: 50%;
+            border: 1px solid transparent;
+            padding: 5px 7px;
+        }
+        
+        .tovar-close:hover {
+            border: 1px solid black;
+            cursor: pointer;
         }
     </style>
 </head>
@@ -79,9 +95,9 @@
     
     <div class="item">
         <div>Категория</div>
-        <select>
+        <select id="category">
             <option selected disabled>Не выбрано</option>
-            <option value="close">Одежда</option>
+            <option value="clothes">Одежда</option>
             <option value="shoes">Обувь</option>
             <option value="tools">Инструменты</option>
         </select>
@@ -138,7 +154,7 @@
     </div>
     
     <div class="item">
-        <button>Добавить товар</button>
+        <button onclick="addTovar()">Добавить товар</button>
     </div>
 </div>
 <div class="tovary">
@@ -148,10 +164,18 @@
         <div class="tovar">
             <div class="tovar-name">Название</div>
             <div class="tovar-category">Категории</div>
+            <div class="tovar-specials">Особенности: </div>
             <div class="tovar-description">Описание</div>
             <div class="tovar-price-count">
-                <div class="tovar-price">Цена: 1000</div>
-                <div class="count">Количество: 1000</div>
+                <!--<div class="tovar-price">Цена: 1000 руб.</div>-->
+                <div class="tovar-price">
+                    <div>Цена: </div>
+                    <div>
+                        <div class="tovar-price-old">1000 руб.</div>
+                        <div>1000 руб.</div>
+                    </div>
+                </div>
+                <div class="count">Количество: 1000 шт.</div>
             </div>
             <div class="tovar-close">X</div>
         </div>
