@@ -44,38 +44,10 @@ function addTovar() {
     // находим активный радио-инпут, который выбран
     let discountChoose = document.querySelector('input[name=discount]:checked');
     
-    // создаем контейнер для товара
-    let cardTovar = document.createElement('div');
-    cardTovar.classList.add('tovar');
-    
-    // создаем html наполнение для блока с ценой
-    let price = ``;
-    
-    // проверим, а есть ли в discountChoose.value значение
-    if (discountChoose.value === 'true') {
-        // inputDiscount
-        let disc = +inputPrice.value * +inputDiscount.value / 100;
-        let newPrice = +inputPrice.value - disc;
-        price = `<div class="tovar-price">
-                    <div>Цена: </div>
-                    <div>
-                        <div class="tovar-price-old">${ inputPrice.value } руб.</div>
-                        <div>${ newPrice } руб.</div>
-                    </div>
-                </div>`;
-    }
-    else {
-        price = `<div class="tovar-price">Цена: ${ inputPrice.value } руб.</div>`;
-    }
-    
-    // достаем все чекбоксы особенностей и генерируем текст
-    let specialsText = '';
     let specialsValues = [];
     let specials = document.querySelectorAll('input[name=specials]:checked');
     
     for (let i = 0; i < specials.length; i++) {
-        // console.log(specials[i].value, specialsObj[specials[i].value]);
-        specialsText += ' ' + specialsObj[specials[i].value];
         specialsValues.push(specials[i].value);
     }
     
@@ -91,17 +63,52 @@ function addTovar() {
     };
     let productIndex = products.push(product) - 1;
     
-    let card = `<div class="tovar-name">${ inputName.value }</div>
-            <div class="tovar-category">${ categories[selectCategory.value] }</div>
+    addTovarCard(product, productIndex)
+}
+
+function addTovarCard(tovar, index) {
+    // создаем контейнер для товара
+    let cardTovar = document.createElement('div');
+    cardTovar.classList.add('tovar');
+    
+    // создаем html наполнение для блока с ценой
+    let price = ``;
+    
+    // проверим, а есть ли в discountChoose.value значение
+    if (tovar.discountChoose === 'true') {
+        // inputDiscount
+        let disc = +tovar.price * +tovar.discount / 100;
+        let newPrice = +tovar.price - disc;
+        price = `<div class="tovar-price">
+                    <div>Цена: </div>
+                    <div>
+                        <div class="tovar-price-old">${ tovar.price } руб.</div>
+                        <div>${ newPrice } руб.</div>
+                    </div>
+                </div>`;
+    }
+    else {
+        price = `<div class="tovar-price">Цена: ${ tovar.price } руб.</div>`;
+    }
+    
+    // достаем все чекбоксы особенностей и генерируем текст
+    let specialsText = '';
+    
+    for (let i = 0; i < tovar.specials.length; i++) {
+        specialsText += ' ' + specialsObj[tovar.specials[i]];
+    }
+    
+    let card = `<div class="tovar-name">${ tovar.name }</div>
+            <div class="tovar-category">${ categories[tovar.category] }</div>
             <div class="tovar-specials">Особенности: ${ specialsText }</div>
-            <div class="tovar-description">${ inputDescription.value }</div>
+            <div class="tovar-description">${ tovar.description }</div>
             <div class="tovar-price-count">
                 ${ price }
-                <div class="count">Количество: ${ inputCount.value } шт.</div>
+                <div class="count">Количество: ${ tovar.count } шт.</div>
             </div>
             <div class="tovar-close">X</div>
             <div class="tovar-edit">
-                <button onclick="edit(${ productIndex })">Редактировать</button>
+                <button onclick="edit(${ index })">Редактировать</button>
             </div>`;
     
     cardTovar.innerHTML = card;
@@ -111,6 +118,7 @@ function addTovar() {
     form.reset();
 }
 
+// редактирование товара, открытие свойств товара в форме товара
 function edit(productIndex) {
     currentEditProduct = productIndex;
     
@@ -142,6 +150,7 @@ function edit(productIndex) {
     }
 }
 
+// обновление товара в массиве товаров после его редактирования
 function editTovar() {
     event.preventDefault();
     buttonAdd.classList.remove('hide');
@@ -178,55 +187,12 @@ function editTovar() {
     buildAgain();
 }
 
+// полностью очищаем список продуктов и строим его заново, вызывая функцию построения карточки товара
 function buildAgain() {
     listDOM.innerText = '';
     
     for (let i = 0; i < products.length; i++) {
-        // создаем контейнер для товара
-        let cardTovar = document.createElement('div');
-        cardTovar.classList.add('tovar');
-        
         let product = products[i];
-        let specialsText = '';
-        
-        for (let i = 0; i < product.specials.length; i++) {
-            specialsText += ' ' + specialsObj[product.specials[i]];
-        }
-        
-        // создаем html наполнение для блока с ценой
-        let price = ``;
-        
-        // проверим, а есть ли в discountChoose.value значение
-        if (product.discountChoose === 'true') {
-            // inputDiscount
-            let disc = +product.price * +product.discount / 100;
-            let newPrice = +product.price - disc;
-            price = `<div class="tovar-price">
-                    <div>Цена: </div>
-                    <div>
-                        <div class="tovar-price-old">${ product.price } руб.</div>
-                        <div>${ newPrice } руб.</div>
-                    </div>
-                </div>`;
-        }
-        else {
-            price = `<div class="tovar-price">Цена: ${ product.price } руб.</div>`;
-        }
-        
-        let card = `<div class="tovar-name">${ product.name }</div>
-            <div class="tovar-category">${ categories[product.category] }</div>
-            <div class="tovar-specials">Особенности: ${ specialsText }</div>
-            <div class="tovar-description">${ product.description }</div>
-            <div class="tovar-price-count">
-                ${ price }
-                <div class="count">Количество: ${ product.count } шт.</div>
-            </div>
-            <div class="tovar-close">X</div>
-            <div class="tovar-edit">
-                <button onclick="edit(${ i })">Редактировать</button>
-            </div>`;
-        
-        cardTovar.innerHTML = card;
-        listDOM.append(cardTovar);
+        addTovarCard(product, i)
     }
 }
