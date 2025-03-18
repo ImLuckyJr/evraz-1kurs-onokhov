@@ -32,7 +32,23 @@
 // }
 
 
+//
+// for (let i = 0; i < 5; i++) {
+//     console.log(i, 'Привет мир');
+// }
 
-for (let i = 0; i < 5; i++) {
-    console.log(i, 'Привет мир');
+
+
+let i = 0;
+// while (true) {
+//     console.log(i);
+//     i += 1;
+//
+//     if (i > 10) {
+//         break;
+//     }
+// }
+
+while (i <= 10) {
+    let a = prompt()
 }

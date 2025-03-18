@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        body {
+            display: flex;
+            flex-direction: row;
+        }
+        
+        body > div {
+            width: 50%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        
+        .item {
+            width: 300px;
+            margin-bottom: 15px;
+        }
+        
+        .item > input,
+        .item > select,
+        .item > textarea,
+        .item > button {
+            width: 100%;
+        }
+        
+        .item .row {
+            display: flex;
+        }
+        
+        .item .column {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+        }
+        
+        .hide {
+            display: none;
+        }
+        
+        .tovar {
+            background-color: #e2e2e2;
+            padding: 20px 40px;
+            width: 400px;
+            border: 1px solid rgba(0, 0, 0, 0.2);
+            border-radius: 16px;
+            position: relative;
+            margin-bottom: 20px;
+        }
+        
+        .tovar-name {
+            font-size: 20px;
+            font-weight: bold;
+        }
+        
+        .tovar-category,
+        .tovar-specials {
+            font-style: italic;
+        }
+        
+        .tovar-description {
+            margin: 15px 0;
+        }
+        
+        .tovar-price-count {
+            display: flex;
+        }
+        
+        .tovar-count {
+            margin-left: 30px;
+        }
+        
+        .tovar-price {
+            display: flex;
+        }
+        
+        .tovar-price-text {
+            margin-right: 15px;
+        }
+        
+        .tovar-price-old {
+            text-decoration: line-through;
+        }
+        
+        .tovar-edit {
+            margin-top: 15px;
+        }
+        
+        .tovar-close {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+        }
+    </style>
+</head>
+<body>
+<div class="form">
+    <h3>Форма добавления товара</h3>
+    
+    <div class="item">
+        <div>Название</div>
+        <input type="text" id="name">
+    </div>
+    
+    <div class="item">
+        <div>Стоимость, руб</div>
+        <select id="category">
+            <option disabled selected>--Выберите один из вариантов--</option>
+            <option value="clothes">Одежда</option>
+            <option value="tools">Инструменты</option>
+            <option value="home">Товары для дома</option>
+        </select>
+    </div>
+    
+    <div class="item">
+        <div>Стоимость, руб</div>
+        <input type="text" id="price">
+    </div>
+    
+    <div class="item">
+        <div>Количество</div>
+        <input type="text" id="count">
+    </div>
+    
+    <div class="item">
+        <div>Есть скидка?</div>
+        
+        <div class="row">
+            <input type="radio" value="true" name="discountChoose" id="dtrue" onclick="discountChoose(true)">
+            <label for="dtrue">Да</label>
+            <input type="radio" value="false" name="discountChoose" id="dfalse" checked onclick="discountChoose(false)">
+            <label for="dfalse">Нет</label>
+        </div>
+    </div>
+    
+    <div class="item hide" id="discountBody">
+        <div>Скидка, %</div>
+        <input type="text" id="discount">
+    </div>
+    
+    <div class="item">
+        <div>Особенности</div>
+        
+        <div class="column">
+            <div>
+                <input type="checkbox" value="bu" name="specials" id="bu">
+                <label for="bu">Б/У</label>
+            </div>
+            
+            <div>
+                <input type="checkbox" value="fragile" name="specials" id="fragile">
+                <label for="fragile">Хрупкое</label>
+            </div>
+        </div>
+    </div>
+    
+    <div class="item">
+        <div>Описание</div>
+        <textarea
+            name=""
+            id="description"
+            rows="6"
+        ></textarea>
+    </div>
+    
+    <div class="item">
+        <button onclick="addTovar()">Добавить товар</button>
+    </div>
+    
+</div>
+<div class="tovary">
+    <h3>Товары</h3>
+    <div id="list">
+        <div class="tovar">
+            <div class="tovar-name">Название</div>
+            <div class="tovar-category">Категория</div>
+            <div class="tovar-specials">Особенности: ___, ___</div>
+            <div class="tovar-description">Описание</div>
+            <div class="tovar-price-count">
+                <!--<div class="tovar-price">Цена: 10 руб</div>-->
+                <div class="tovar-price">
+                    <div class="tovar-price-text">Цена</div>
+                    <div>
+                        <div class="tovar-price-old">1000 руб</div>
+                        <div class="tovar-price-new">800 руб</div>
+                    </div>
+                </div>
+                <div class="tovar-count">Количество: 0 шт</div>
+            </div>
+            <div class="tovar-edit">
+                <button>Редактировать</button>
+            </div>
+            <div class="tovar-close">Х</div>
+        </div>
+    </div>
+</div>
+<script src="занятие_2025-03-18.js"></script>
+</body>
+</html>

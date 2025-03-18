@@ -41,6 +41,8 @@ function discount(item) {
 }
 
 function addTovar() {
+    event.preventDefault();
+    
     // находим активный радио-инпут, который выбран
     let discountChoose = document.querySelector('input[name=discount]:checked');
     
@@ -114,7 +116,6 @@ function addTovarCard(tovar, index) {
     cardTovar.innerHTML = card;
     listDOM.append(cardTovar);
     
-    event.preventDefault();
     form.reset();
 }
 
@@ -153,6 +154,7 @@ function edit(productIndex) {
 // обновление товара в массиве товаров после его редактирования
 function editTovar() {
     event.preventDefault();
+    
     buttonAdd.classList.remove('hide');
     buttonEdit.classList.add('hide');
     titleAdd.classList.remove('hide');
@@ -181,7 +183,6 @@ function editTovar() {
     product.price = inputPrice.value;
     product.count = inputCount.value;
     
-    event.preventDefault();
     form.reset();
     
     buildAgain();
