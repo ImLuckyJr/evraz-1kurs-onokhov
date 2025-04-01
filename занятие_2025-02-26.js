@@ -28,6 +28,7 @@ let specialsObj = {
 };
 
 function discount(item) {
+    console.log(1);
     let field = document.getElementById('discountDom');
     
     if (item) {
